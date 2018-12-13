@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body>
+
+    <button type="button" class="btn">Basic</button>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        const Url='https://www.googleapis.com/books/v1/volumes?q=isbn:9781451648546';
+        $('.btn').click(function(){
+            $.ajax({
+                url: Url,
+                type: "GET",
+                success: function(result){
+                    console.log(result)
+                },
+                error:function(error){
+                    console.log(`Error ${error}`)
+                }
+        })
+        })
+    })
+
+</script>
